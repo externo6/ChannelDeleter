@@ -14,17 +14,6 @@ require_once("config.php");
 require_once("lang.php");
 require_once("ts3_lib/TeamSpeak3.php");
 
-if($accesswithurl==1)
-{
-	if (isset($_GET['user'])) { $inuser=$_GET['user']; } else { $inuser=false; }
-	if (isset($_GET['pass'])) { $inpass=$_GET['pass']; } else { $inpass=false; }
-}
-else
-{
-	$inuser=false;
-	$inpass=false;
-}
-
 if($secure==1)
 {
 	if($inuser!=false && $inpass!=false)
