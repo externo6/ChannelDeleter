@@ -1,6 +1,7 @@
 The Channeldeleter is a tool to check the activity of Channel on a TeamSpeak Server. Inactive Channel can be deleted automatically.
 
 This tool was created from Newcomer1989 for http://www.ts-n.net.
+Edited for Banxsi.com by Externo6
 
 Its allowed to use, edit and reproduce this tool but not to sell it! The Channeldeleter is a project under the GNU Generel Public License.
 
