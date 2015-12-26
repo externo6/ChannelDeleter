@@ -45,8 +45,7 @@ $nodelete	= array(358,359,360);			// seperate this with a komma
 // You can save the delete_channel.php with a password, if you wish
 $secure		= "1";					// 1 = active; 0 = inactive
 $username	= "Username";				// Username to login
-$password	= "098f6bcd4621d373cade4e832627b4f6";	// Password to login; its md5 encrypted -> use this to encrypt it http://bueltge.de/md5/
-$accesswithurl	= "0";					// 1 = active; 0 = inactive; access the delete_channel.php with URL parameter -> not recommend! Example usage http://ts-n.net/chdel/delete_channel.php?user=Username&pass=Password
+$password	= "098f6bcd4621d373cade4e832627b4f6";	// Password to login; its md5 encrypted -> use this to encrypt it http://bueltge.de/md5/$accesswithurl	= "0";					// 1 = active; 0 = inactive; access the delete_channel.php with URL parameter -> not recommend! Example usage http://ts-n.net/chdel/delete_channel.php?user=Username&pass=Password
 
 // Check for new Updates for the Channeldeleter
 $update		= "1";					// 1 = active; 0 = inactive
