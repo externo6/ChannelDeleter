@@ -39,39 +39,6 @@ try
 	}
 
 	$todaydate=time();
-
-	if($update==1)
-	{
-		$updatetime=$todaydate-$updateinfotime;
-		$lastupdate=$mysqlcon->query("SELECT * FROM $table_update");
-		$lastupdate=$lastupdate->fetch_row();
-		if($lastupdate[0]<$updatetime)
-		{
-			$newversion=file_get_contents('http://ts-n.net/chdel/version');
-			if(substr($newversion,0,4)!=substr($currvers,0,4))
-			{
-				echo'<b>'.$lang['upinf'].'</b><br><table>';
-				foreach($uniqueid as $clientid)
-				{
-					echo'<tr><td>';
-					try
-					{
-						$ts3_VirtualServer->clientGetByUid($clientid)->message(sprintf($lang['upmsg'],$currvers,$newversion));
-						echo'<span class="green">'.sprintf($lang['upusrinf'],$clientid).'</span>';
-					}
-					catch(Exception $e)
-					{
-						echo'<span class="red">'.sprintf($lang['upusrerr'],$clientid).'</span>';
-					}
-					echo'</td></tr>';
-				}
-				echo'</table><br>';
-				$mysqlcon->query("UPDATE $table_update SET timestamp=$todaydate");
-			}
-		}
-	}
-
-
 	$icontime=$todaydate-$warntime;
 
 	$tschanarr=$ts3_VirtualServer->channelList();

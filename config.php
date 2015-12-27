@@ -46,10 +46,4 @@ $nodelete	= array(358,359,360);			// seperate this with a komma
 $secure		= "1";					// 1 = active; 0 = inactive
 $username	= "Username";				// Username to login
 $password	= "098f6bcd4621d373cade4e832627b4f6";	// Password to login; its md5 encrypted -> use this to encrypt it http://bueltge.de/md5/$accesswithurl	= "0";					// 1 = active; 0 = inactive; access the delete_channel.php with URL parameter -> not recommend! Example usage http://ts-n.net/chdel/delete_channel.php?user=Username&pass=Password
-
-// Check for new Updates for the Channeldeleter
-$update		= "1";					// 1 = active; 0 = inactive
-$uniqueid	= array("xrTKhT/HDl4ea0WoFDQH2zOpmKg=","9odBYAU7z2E2feUz965sL0/MyBom=");	// a comma seperate liste of unique IDs of the Client, which should be informed on TeamSpeak
-$updateinfotime	= "7200";				// time in seconds how often a message for update should send to unique ID
-$currvers	= "2.01-beta 2014-06-09";		// current version of the Channeldeleter; you shouldn't change this
 ?>
