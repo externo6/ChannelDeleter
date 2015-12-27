@@ -18,3 +18,5 @@ This Software uses the PHP Framework of planetteamspeak.com, which is also a pro
 The Icons come from http://findicons.com/
 Instructions can be found here:
 http://ts-n.net/channeldeleter.php
+
+As banxsi.com is only interested in the crawl_data.php script. We have created a crawl_cli.php script for CLI use only.
