@@ -118,53 +118,55 @@ try
 		$userinchannel=$channel['total_clients'];
 		$channelpath=$channel->getPathway();
 		$channelpath=htmlspecialchars($channelpath, ENT_QUOTES);
-		
-		echo'<tr><td>'.$lang['cid'].$channelid.' : </td><td>'.$channelname.'</td>';
-		
-		$cidexists=$mysqlcon->query("SELECT * FROM $table_channel WHERE cid='$channelid'");
-		$cidexists=$cidexists->num_rows;
 
-		if($cidexists>0)
-		{
-			if($userinchannel>0)
-			{
-				echo'<td><span class="green">'.sprintf($lang['cidup'],$userinchannel).'</span></td></tr>';
-				$mysqlcon->query("UPDATE $table_channel SET lastuse='$todaydate',path='$channelpath' WHERE cid='$channelid'");
-				if($seticon==1)
-				{
-					$checkicon=$ts3_VirtualServer->channelPermList($channelid,$permsid=FALSE);
-					foreach($checkicon as $rows)
-					{
-						if($rows["permvalue"]=="301694691")
-						{
-							$ts3_VirtualServer->channelPermRemove($channelid, 142);
-						}
-					}
-				}
-			}
-			else
-			{
-				$lastusetime=$mysqlcon->query("SELECT lastuse FROM $table_channel WHERE cid='$channelid'");
-				$lastusetime=$lastusetime->fetch_row();
-				$mysqlcon->query("UPDATE $table_channel SET path='$channelpath' WHERE cid='$channelid'");
-				echo'<td><span class="red">'.$lang['cidnoup'].'</span></td>';
-				if($seticon==1 && !in_array($channelid, $nodelete) && $lastusetime[0]<$icontime && substr_count(strtolower($tschanarr[$channelid]['channel_name']),"spacer")==0)
-				{
-					$children=$channel->getChildren();
-					if($children=="")
-					{
-						echo'<td><span class="blue">'.$lang['seticon'].'</span></td>';
-						$ts3_VirtualServer->channelPermAssign($channelid, 142, 301694691);
-					}
-				}
-				echo'</tr>';
-			}	
-		}
-		else
-		{
-			echo'<td><span class="blue">'.$lang['record'].'</span></td></tr>';
-			$mysqlcon->query("INSERT INTO $table_channel (cid, lastuse, path) VALUES ('$channelid','$todaydate','$channelpath')");
-		}
+		if(!in_array($channelid, $nodelete) && substr_count(strtolower($tschanarr[$channelid]['channel_name']),"spacer") == 0) {
+            echo'<tr><td>'.$lang['cid'].$channelid.' : </td><td>'.$channelname.'</td>';
+            
+            $cidexists=$mysqlcon->query("SELECT * FROM $table_channel WHERE cid='$channelid'");
+            $cidexists=$cidexists->num_rows;
+
+            if($cidexists>0)
+            {
+                if($userinchannel>0)
+                {
+                    echo'<td><span class="green">'.sprintf($lang['cidup'],$userinchannel).'</span></td></tr>';
+                    $mysqlcon->query("UPDATE $table_channel SET lastuse='$todaydate',path='$channelpath' WHERE cid='$channelid'");
+                    if($seticon==1)
+                    {
+                        $checkicon=$ts3_VirtualServer->channelPermList($channelid,$permsid=FALSE);
+                        foreach($checkicon as $rows)
+                        {
+                            if($rows["permvalue"]=="301694691")
+                            {
+                                $ts3_VirtualServer->channelPermRemove($channelid, 142);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    $lastusetime=$mysqlcon->query("SELECT lastuse FROM $table_channel WHERE cid='$channelid'");
+                    $lastusetime=$lastusetime->fetch_row();
+                    $mysqlcon->query("UPDATE $table_channel SET path='$channelpath' WHERE cid='$channelid'");
+                    echo'<td><span class="red">'.$lang['cidnoup'].'</span></td>';
+                    if($seticon==1 && !in_array($channelid, $nodelete) && $lastusetime[0]<$icontime && substr_count(strtolower($tschanarr[$channelid]['channel_name']),"spacer")==0)
+                    {
+                        $children=$channel->getChildren();
+                        if($children=="")
+                        {
+                            echo'<td><span class="blue">'.$lang['seticon'].'</span></td>';
+                            $ts3_VirtualServer->channelPermAssign($channelid, 142, 301694691);
+                        }
+                    }
+                    echo'</tr>';
+                }	
+            }
+            else
+            {
+                echo'<td><span class="blue">'.$lang['record'].'</span></td></tr>';
+                $mysqlcon->query("INSERT INTO $table_channel (cid, lastuse, path) VALUES ('$channelid','$todaydate','$channelpath')");
+            }
+        }
 	}
 	echo'</table><br><b>'.$lang['hlcleandb'].'</b><br><table>';
 	$count=1;
