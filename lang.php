@@ -61,8 +61,8 @@ $lang['seticon']="Hoiatus! Kanal kustutatakse lähiajal, seatud hoiatusikoon";
 $lang['user']="Kasutajanimi";
 } else {
 $lang['cid']="Channel Id ";
-$lang['cidnoup']="The Channel Id was found but there is no User inside, so no update!";
-$lang['cidup']="The Channel Id was found and get updated, cause there was %s User inside.";
+$lang['cidnoup']="ID exists, no update";
+$lang['cidup']="%s User(s) inside.";
 $lang['cleanch']="All Channel, which are unused since %s has to be delete.";
 $lang['cleandb']="Channel isn't existent on TS, so it was deleted out of the Channeldeleter db.";
 $lang['dbconerr']="Failed to connect to MySQL-Database: ";
