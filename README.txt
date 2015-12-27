@@ -9,7 +9,7 @@ A description how to use it you will find on the following site. There are also 
 http://ts-n.net/channeldeleter.php
 
 Original Version: 2.01-beta
-This version: 0.01
+This version: 0.03
 
 Use this Software for your own risk! The owner does not warrant the functionality of the software. Further on, the owner not liable for damages resulting from the usage of the software.
 
