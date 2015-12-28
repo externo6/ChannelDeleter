@@ -4,7 +4,7 @@ $starttime=microtime(true);
 <!doctype html>
 <html>
 <head>
-  <title>TS-N.NET Channeldeleter - List next deletes</title>
+  <title>Teamspeak Channel Deletion List</title>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <link rel="stylesheet" href="style.css" type="text/css">
 </head>  
