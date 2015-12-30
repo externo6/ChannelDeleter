@@ -30,7 +30,7 @@ $queryname2	= "Channeldeleter2";			// Fallback name of query, if first one is al
 $unusedtime	= "604800";				// time in seconds; example: 604800 = 1 week
 
 // Time, which a channel have to be unused before warning on the list_delete.php
-$warntime	= "43200";				// time in seconds; example: 432000 = 5 days
+$warntime	= "432000";				// time in seconds; example: 432000 = 5 days
 
 // Set a Icon to the channel, if the warntime is reached
 $seticon	= "1";					// 1 = active; 0 = inactive
